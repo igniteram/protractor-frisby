@@ -11,7 +11,7 @@ npm test
 ```
 you should see the following output in console:
 
-![frisbyOutput](./frisby_output.png)
+![frisby_output](https://cloud.githubusercontent.com/assets/15998104/21527460/84680b6a-cd51-11e6-9814-d78613cbe03b.PNG)
 
 `jasmine-node` is used to run the tests which could is configured in `scripts` section of package.json
 
