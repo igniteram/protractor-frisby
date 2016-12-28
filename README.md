@@ -11,7 +11,7 @@ npm test
 ```
 you should see the following output in console:
 
-![frisbyOutput](https://raw.githubusercontent.com/igniteram/test-frisby/master/frisby_output.png)
+![frisbyOutput](./frisby_output.png)
 
 `jasmine-node` is used to run the tests which could is configured in `scripts` section of package.json
 
