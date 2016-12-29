@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine-node frisby_spec.js"
+    "postinstall": "webdriver-manager update",
+    "regression_tests": "cd config/ && protractor protractor.conf.js --suite ui_tests",
+    "api_tests": "cd specs/api && jasmine-node frisby_spec.js",
+    "test": "npm run regression_tests && npm run api_tests"
   },
-  "keywords": ["frisby","REST API testing", "Node"],
+  "keywords": [
+    "frisby",
+    "REST API testing",
+    "Node"
+  ],
   "author": "Ram Pasala <ram.pasala7@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^1.14.5",
+    "protractor": "^4.0.14"
   },
   "devDependencies": {
-    "frisby": "^0.8.5"
+    "frisby": "git+https://github.com/vlucas/frisby.git#v2"
   },
   "description": "To test the frisby REST API testing with node"
 }

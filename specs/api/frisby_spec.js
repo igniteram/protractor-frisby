@@ -1,7 +1,8 @@
 // Latest nodejs versions(6 onwards) support `const`, it is preferred than `var`
 const frisby = require('frisby');
+const env = require('../../config/environment')
 // test API url- we could perform all operations on it!
-const test_url = 'http://jsonplaceholder.typicode.com/posts';
+const api_url = env.baseUrl+'/posts';
 /*
 Following test case validates the GET response of the test API url
 1) Validates/asserts response Status
@@ -9,8 +10,8 @@ Following test case validates the GET response of the test API url
 3) Validates/asserts response Data Type
 **/
 frisby
-    .create('To test the GET response types of test_url ')
-    .get(test_url)
+    //.create('To test the GET response types of api_url ')
+    .get(api_url)
     .expectStatus(200)
     .expectHeaderContains('content-type', 'application/json')
     .expectJSONTypes('0', {
@@ -28,8 +29,8 @@ Note that the test_url = http://jsonplaceholder.typicode.com/posts/1
 3) Validates/asserts response Data
 **/
 frisby
-    .create('To test the GET response data of test_url ')
-    .get(test_url + '/1')
+    //.create('To test the GET response data of api_url ')
+    .get(api_url + '/1')
     .expectStatus(200)
     .expectHeaderContains('content-type', 'application/json')
     .expectJSON({
@@ -47,8 +48,8 @@ Following test case validates the POST response data of the test API url
 4) Validates/asserts response Data Type
 **/
 frisby
-    .create('To test the POST response data of test_url ')
-    .post(test_url, {
+    //.create('To test the POST response data of api_url ')
+    .post(api_url, {
         title: 'test_foo',
         body: 'test_bar',
         userId: 188
@@ -76,8 +77,8 @@ Following test case validates the PUT response data of the test API url
 4) Validates/asserts response Data Type
 **/
 frisby
-    .create('To test the PUT response data of test_url ')
-    .put(test_url + '/1', {
+    //.create('To test the PUT response data of api_url ')
+    .put(api_url + '/1', {
         id: 1,
         title: 'foo',
         body: 'bar',
@@ -105,11 +106,9 @@ Following test case validates the DELETE response data of the test API url
 3) Validates/asserts response Data which should empty Object
 **/
 frisby
-    .create('To test the DELETE response of test url')
-    .delete(test_url + '/1')
+    //.create('To test the DELETE response of api_url')
+    .delete(api_url + '/1')
     .expectStatus(200)
     .expectHeaderContains('content-type', 'application/json')
     .expectJSON({ })  // Expecting empty object as it is deleted
     .toss()
-
-
